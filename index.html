@@ -143,6 +143,9 @@
         showErrorMessage.style.display = "none";
 
         addFormContent(firstName, lastName, comment);
+
+        let formElement = document.querySelector("form");
+        formElement.reset();
       }
     }
   </script>
