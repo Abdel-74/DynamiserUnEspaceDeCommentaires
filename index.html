@@ -95,7 +95,37 @@
       </div>
     </div>
   </div>
-  <script>
+  <script type="text/javascript">
+
+    function addFormContent(firstName, lastName, comment){
+
+      let divComment = document.getElementById("comment-list");
+
+      let div1 = document.createElement("div");
+      div1.className = "flex space-x-4 text-sm text-gray-500";
+      divComment.appendChild(div1);
+
+      let div2 = document.createElement("div");
+      div2.className = "flex-1 py-10 border-t border-gray-200";
+      div1.appendChild(div2);
+
+      let fullName = document.createElement("h3");
+      fullName.className = "font-medium text-gray-900";
+      let fullNameText = document.createTextNode(firstName.value + " " + lastName.value);
+      fullName.appendChild(fullNameText);
+      div2.appendChild(fullName);
+
+
+      let div3 = document.createElement("div");
+      div3.className = "prose prose-sm mt-4 max-w-none text-gray-500";
+      let commentElement = document.createElement("p");
+      let commentElementContent = document.createTextNode(comment.value);
+      commentElement.appendChild(commentElementContent);
+      div3.appendChild(commentElement);
+
+      div2.appendChild(div3);   
+    }
+    
     function submitFields(){
       
       let firstName = document.getElementById("first-name");
@@ -111,6 +141,8 @@
       }else{
 
         showErrorMessage.style.display = "none";
+
+        addFormContent(firstName, lastName, comment);
       }
     }
   </script>
